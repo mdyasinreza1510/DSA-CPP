@@ -6,6 +6,7 @@ public:
                 char c=i.first;
                 int fneed=i.second;
                 int fhave=have[c];
+                /*yaha fhave=have[c] ka mtlb hai ki intially c me i ki first valu hai suppoce 'a : 5' tob ab fhave me hace['a'] save hoga ab have[a] ki jo bhi frequency hogi wo fhave me save hojayegi */
                 if(fhave<fneed){
                     return false;
                 }
