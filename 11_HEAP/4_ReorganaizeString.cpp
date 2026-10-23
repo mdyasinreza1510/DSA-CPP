@@ -1,15 +1,36 @@
 class Solution {
 public:
+/*
+Logic
+- Sabse pehle HashMap se har character ki frequency count karo.
+
+- Max Heap banao jisme (frequency, character) store hoga.
+
+- Heap ka top hamesha highest frequency wala character dega.
+
+- Har baar heap se sabse frequent character nikalo aur answer me add karo.
+
+- Us character ki frequency 1 kam kar do.
+
+- Us character ko turant dobara heap me mat daalo, warna wahi character consecutive aa jayega.
+
+- Previous character aur uski remaining frequency alag se store rakho.
+
+- Agli iteration me pehle previous character ko heap me wapas push karo (agar uski frequency abhi bhi bachi ho).
+
+- Ye process tab tak chalta rahega jab tak heap empty na ho.
+
+- Agar end me answer ki length original string ke barabar nahi bani, to arrangement possible nahi tha.
+
+*/
     string reorganizeString(string s) {
 
         unordered_map<char,int> mp;
 
-        // Count frequency
         for(int i = 0; i < s.size(); i++){
             mp[s[i]]++;
         }
 
-        // Max Heap -> {frequency, character}
         priority_queue<pair<int,char>> pq;
 
         // Push all characters into heap
