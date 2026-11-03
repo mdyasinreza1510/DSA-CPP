@@ -1,5 +1,16 @@
 //373
-
+/*
+Logic
+- Hume smallest sum wale pairs chahiye.
+- Isliye Min Heap use karenge.
+- Heap me (sum, i, j) store karenge.
+- Shuru me har row ka pehla pair (i,0) heap me push karenge.
+- Heap ka top hamesha smallest sum hoga.
+- Top pair ko answer me add karo.
+- Agar us row me next element exist karta hai, to (i,j+1) heap me push kar do.
+- Ye process k baar repeat karo ya heap empty hone tak.
+- Isse unnecessary saare pairs generate nahi karne padte.
+*/
 class Solution {
 public:
     vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
