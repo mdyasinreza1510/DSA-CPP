@@ -14,3 +14,40 @@ Logic
 - End me string ko integer me convert karke return kar do.
 
 */
+
+class Solution {
+public:
+    int largestInteger(int num) {
+       string s=to_string(num);
+        priority_queue<int>odd;
+        priority_queue<int>even;
+
+        for(int i=0;i<s.size();i++){
+            int digit=s[i]-'0';//eg:-S=5 ,0=48// ASCII value s[5]= 53; S - '0'  // 53 - 48 = 5
+            if(digit % 2 == 0)
+            {
+                even.push(digit);
+            }
+            else
+            {
+                odd.push(digit);
+            }
+        }
+        for(int i=0;i<s.size();i++)
+        {
+            int currdig=s[i]-'0';
+            if(currdig % 2 == 0)
+            {
+                s[i]=even.top()+'0';//eg: top=5 ->5+48 =53
+                even.pop();
+            }
+            else{
+                s[i]=odd.top()+'0';
+                odd.pop();
+            }
+        }
+        return stoi(s);
+
+        
+    }
+};
