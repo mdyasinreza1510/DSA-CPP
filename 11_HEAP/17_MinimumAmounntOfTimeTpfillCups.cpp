@@ -13,3 +13,46 @@ Logic
 - Agar end me ek element bach jaye, uski value ko answer me add kar do.
 - Final answer return karo.
 */
+class Solution {
+public:
+    int fillCups(vector<int>& amount) {
+
+        priority_queue<int> pq;
+
+        for(int i = 0; i < amount.size(); i++){
+            if(amount[i] > 0){
+                pq.push(amount[i]);
+            }
+        }
+
+        int time = 0;
+
+        while(pq.size() >= 2){
+
+            int first = pq.top();
+            pq.pop();
+
+            int second = pq.top();
+            pq.pop();
+
+            first--;
+            second--;
+
+            time++;
+
+            if(first > 0){
+                pq.push(first);
+            }
+
+            if(second > 0){
+                pq.push(second);
+            }
+        }
+
+        if(!pq.empty()){
+            time += pq.top();
+        }
+
+        return time;
+    }
+};
