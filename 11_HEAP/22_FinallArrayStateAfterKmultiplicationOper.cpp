@@ -15,3 +15,30 @@ Logic
 - k operations ke baad array return kar do.
 
 */
+
+
+class Solution {
+public:
+    vector<int> getFinalState(vector<int>& nums, int k, int multiplier) {
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
+
+        for( int i=0; i<nums.size();i++){
+            pq.push({nums[i],i});//<element, index>
+        }
+        while(k--)
+        {
+            int topel=pq.top().first;
+
+            int idx=pq.top().second;
+
+            pq.pop();
+
+            topel*=multiplier;
+
+            nums[idx]= topel;
+
+            pq.push({topel,idx});
+        }
+     return nums;
+    }
+};
