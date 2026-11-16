@@ -11,3 +11,34 @@ LOGIC
 
 
 */
+
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        int n= nums.size()/2;
+        for(int i=0;i<nums.size() ;i++){
+            mp[nums[i]]++;
+        }
+        int ans=0;
+     
+        for(auto i:mp)
+        {
+            if(i.second >n)
+            {
+               ans=i.first;
+            }
+
+        }
+        return ans;;
+        
+        // priority_queue<pair<int,int>>pq;
+
+        // for(auto i:mp){
+        //     pq.push({i.second,i.first});
+        // }
+        // return pq.top().second;
+        
+    }
+};
