@@ -10,3 +10,35 @@ Logic
 - Agar end me kisi bhi character ki frequency 0 nahi hai → false.
 - Warna → true.
 */
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+
+        if(s.size() != t.size()){
+            return false;
+        }
+
+        unordered_map<char,int> mp;
+
+        // Count characters of s
+        for(int i = 0; i < s.size(); i++){
+            mp[s[i]]++;
+        }
+
+        // Remove characters of t
+        for(int i = 0; i < t.size(); i++){
+            mp[t[i]]--;
+        }
+
+        // Check frequencies
+        for(auto it : mp){
+
+            if(it.second != 0){
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
