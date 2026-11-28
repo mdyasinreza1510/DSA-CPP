@@ -10,3 +10,39 @@ Logic
 - Jab kisi bhi number ki frequency na bache, process stop kar do.
 - Isi order me answer automatically problem ke according ban jayega.
 */
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+
+        map<int,int> mp;
+        vector<int> ans;
+
+
+        for(int i = 0; i < nums.size(); i++)
+        {
+            mp[nums[i]]++;
+        }
+
+        while(true)
+        {
+            bool found = false;
+
+            for(auto &i : mp)
+            {
+                if(i.second > 0)
+                {
+                    ans.push_back(i.first);
+                    i.second--;
+                    found = true;
+                }
+            }
+
+            if(found == false)
+            {
+                break;
+            }
+        }
+
+        return ans;
+    }
+};
